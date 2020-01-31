@@ -8,11 +8,11 @@ MERGE (c1: Node1 { name: "C1" })
 MERGE (d1: Node1 { name: "D1" })
 MERGE (f1: Node1 { name: "F1" })
 
-MERGE (a1)-[:Link1 { distance: 2 }]-(b1)
-MERGE (a1)-[:Link1 { distance: 1 }]-(c1)
-MERGE (b1)-[:Link1 { distance: 4 }]-(f1)
-MERGE (c1)-[:Link1 { distance: 1 }]-(d1)
-MERGE (d1)-[:Link1 { distance: 3 }]-(f1);
+MERGE (a1)-[:Link1 { distance: 2 }]->(b1)
+MERGE (a1)-[:Link1 { distance: 1 }]->(c1)
+MERGE (b1)-[:Link1 { distance: 4 }]->(f1)
+MERGE (c1)-[:Link1 { distance: 1 }]->(d1)
+MERGE (d1)-[:Link1 { distance: 3 }]->(f1);
 ```
 
 ## Shortes path
@@ -80,43 +80,36 @@ WITH DISTINCT rel AS rel
 RETURN startNode(rel).name AS source, endNode(rel).name AS destination, rel.distance AS cost;
 ```
 
+## Degree centrality
+
+https://neo4j.com/docs/graph-algorithms/current/labs-algorithms/degree-centrality/
+
+
+
+```
+CALL algo.degree.stream("User", "FOLLOWS", {direction: "incoming"})
+
+YIELD nodeId, score
+
+RETURN algo.asNode(nodeId).id AS name, score AS weightedFollowers
+
+ORDER BY followers DESC
+```
+
+โดยสามารถเลือก direction ได้ 3 แบบ
+
+- `'incoming'`: สนใจขาเข้า (เป็น `default` option)
+
+- `'outgoing'`: สนใจขาออก
+
+- `'both'`: ไม่สนทิศทาง (undirected graph)
+
+
 ## Betweeness centrality
 
 https://neo4j.com/docs/graph-algorithms/current/labs-algorithms/betweenness-centrality/
 
-### แบบไม่สนทิศทาง
-
 ```
-CALL algo.betweenness.stream("Node1", "Link1", {direction:"<>"})
-
-YIELD nodeId, centrality
-
-MATCH (n:Node1) WHERE id(n) = nodeId
-
-RETURN n.name AS n, centrality
-
-ORDER BY centrality DESC;
-```
-
-### แบบไม่สนทิศทาง
-
-```
-CALL algo.betweenness.stream("Node1", "Link1", {direction:"<>"})
-
-YIELD nodeId, centrality
-
-MATCH (n:Node1) WHERE id(n) = nodeId
-
-RETURN n.name AS n, centrality
-
-ORDER BY centrality DESC;
-```
-
-### แบบสนทิศทาง (สนขาออก)
-
-```
-// ขาออกใช้ "OUT", ขาเข้าใช้ "IN"
-
 CALL algo.betweenness.stream("Node1", "Link1", {direction:"OUT"})
 
 YIELD nodeId, centrality
@@ -127,5 +120,14 @@ RETURN n.name AS n, centrality
 
 ORDER BY centrality DESC;
 ```
+
+โดยสามารถเลือก direction ได้ 3 แบบ
+
+- `'INCOMING'`,`'IN'`,`'I'`, `'<'`: สนใจขาเข้า (เป็น incoming option)
+
+- `'OUTGOING'`,`'OUT'`,`'O'`, `'>'`: สนใจขาออก (เป็น `default` option)
+
+- `'both'`: ไม่สนทิศทาง (undirected graph)
+
 
 ดูเพิ่มเติมที่ https://neo4j.com/docs/graph-algorithms/current/labs-algorithms/betweenness-centrality/#labs-algorithms-betweenness-centrality-support
