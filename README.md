@@ -133,7 +133,7 @@ ORDER BY centrality DESC;
 
 - `'OUTGOING'`,`'OUT'`,`'O'`, `'>'`: สนใจขาออก (เป็น `default` option)
 
-- `'both'`: ไม่สนทิศทาง (undirected graph)
+- `'both', '<>'`: ไม่สนทิศทาง (undirected graph)
 
 
 ดูเพิ่มเติมที่ https://neo4j.com/docs/graph-algorithms/current/labs-algorithms/betweenness-centrality/#labs-algorithms-betweenness-centrality-support
