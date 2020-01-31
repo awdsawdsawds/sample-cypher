@@ -92,8 +92,7 @@ RETURN startNode(rel).name AS source, endNode(rel).name AS destination, rel.dist
 
 https://neo4j.com/docs/graph-algorithms/current/labs-algorithms/degree-centrality/
 
-```
-CALL algo.degree.stream("User", "FOLLOWS", {direction: "incoming"})
+```CALL algo.degree.stream("Node1", "Link1", {direction: "incoming"})
 
 YIELD nodeId, score
 
