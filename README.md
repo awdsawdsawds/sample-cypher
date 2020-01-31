@@ -35,7 +35,7 @@ MATCH (other:Node1) WHERE id(other) = nodeId
 RETURN other.name AS name, cost;
 ```
 
-### แบบไม่สนใจ Weight
+### แบบไม่สนใจ Weight (ทุก relation มี Weight เป็น 1)
 
 ```
 // หา Shortes path from A1->F1
@@ -57,7 +57,7 @@ https://neo4j.com/docs/graph-algorithms/current/labs-algorithms/minimum-weight-s
 
 ```
 // สร้าง relation สำหรับ MST โดยใช้ชื่อว่า MINST
-// return performance ของการทำงาน
+// และ return performance ของการทำงาน
 MATCH (n:Node1 {name:"A1"})
 
 CALL algo.spanningTree.minimum("Node1", "Link1", "distance", id(n), {write:true, writeProperty:"MINST"})
@@ -78,4 +78,52 @@ UNWIND rels AS rel
 WITH DISTINCT rel AS rel
 
 RETURN startNode(rel).name AS source, endNode(rel).name AS destination, rel.distance AS cost;
+```
+
+## Betweeness centrality
+
+https://neo4j.com/docs/graph-algorithms/current/labs-algorithms/betweenness-centrality/
+
+### แบบไม่สนทิศทาง
+
+```
+CALL algo.betweenness.stream("Node1", "Link1", {direction:"<>"})
+
+YIELD nodeId, centrality
+
+MATCH (n:Node1) WHERE id(n) = nodeId
+
+RETURN n.name AS n, centrality
+
+ORDER BY centrality DESC;
+```
+
+### แบบไม่สนทิศทาง (สนขาออกออก)
+
+```
+CALL algo.betweenness.stream("Node1", "Link1", {direction:"<>"})
+
+YIELD nodeId, centrality
+
+MATCH (n:Node1) WHERE id(n) = nodeId
+
+RETURN n.name AS n, centrality
+
+ORDER BY centrality DESC;
+```
+
+### แบบสนทิศทาง (สนขาออก)
+
+```
+// ขาออกใช้ "OUT", ขาเข้าใช้ "IN"
+// https://neo4j.com/docs/graph-algorithms/current/labs-algorithms/betweenness-centrality/#labs-algorithms-betweenness-centrality-support 
+CALL algo.betweenness.stream("Node1", "Link1", {direction:"OUT"})
+
+YIELD nodeId, centrality
+
+MATCH (n:Node1) WHERE id(n) = nodeId
+
+RETURN n.name AS n, centrality
+
+ORDER BY centrality DESC;
 ```
