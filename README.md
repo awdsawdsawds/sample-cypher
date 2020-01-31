@@ -4,10 +4,17 @@
 
 `หมายเหตุ`  
 `1. ใน code บางอย่างตัวพิมพ์เล็ก ตัวพิมพิ์ใหญ่ใช้แทนกันได้ (case insensitive)`  
-`2. ใน code ตัวอย่างนี้ บางคำเป็นแค่ชื่อตัวแปร ซึ่งเวลาใช้ต้องเปลี่ยนตามโจทย์`
+`2. ใน code ตัวอย่างนี้ บางคำเป็นแค่ชื่อตัวแปร ซึ่งเวลาใช้ต้องเปลี่ยนตามโจทย์`  
+`3. ต้องติดตั้ง plugin GRAPH ALGORITHMS ก่อน โดยสามารถเซ็คได้ดังนี้`
+
+![management](image/management.png)
+
+![management](image/plugin.png)
+
+
+เริ่มจากการสร้าง graph
 
 ```
-// สร้าง graph
 MERGE (a1: Node1 { name: "A1" })
 MERGE (b1: Node1 { name: "B1" })
 MERGE (c1: Node1 { name: "C1" })
