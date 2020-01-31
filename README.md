@@ -98,7 +98,7 @@ RETURN n.name AS n, centrality
 ORDER BY centrality DESC;
 ```
 
-### แบบไม่สนทิศทาง (สนขาออกออก)
+### แบบไม่สนทิศทาง
 
 ```
 CALL algo.betweenness.stream("Node1", "Link1", {direction:"<>"})
@@ -116,7 +116,7 @@ ORDER BY centrality DESC;
 
 ```
 // ขาออกใช้ "OUT", ขาเข้าใช้ "IN"
-// https://neo4j.com/docs/graph-algorithms/current/labs-algorithms/betweenness-centrality/#labs-algorithms-betweenness-centrality-support 
+
 CALL algo.betweenness.stream("Node1", "Link1", {direction:"OUT"})
 
 YIELD nodeId, centrality
@@ -127,3 +127,5 @@ RETURN n.name AS n, centrality
 
 ORDER BY centrality DESC;
 ```
+
+ดูเพิ่มเติมที่ https://neo4j.com/docs/graph-algorithms/current/labs-algorithms/betweenness-centrality/#labs-algorithms-betweenness-centrality-support
