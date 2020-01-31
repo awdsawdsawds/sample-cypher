@@ -97,9 +97,9 @@ CALL algo.degree.stream("Node1", "Link1", {direction: "incoming"})
 
 YIELD nodeId, score
 
-RETURN algo.asNode(nodeId).id AS name, score AS weightedFollowers
+RETURN algo.asNode(nodeId).id AS name, score
 
-ORDER BY followers DESC
+ORDER BY score DESC;
 ```
 
 สามารถเลือก direction ได้ 3 แบบ
