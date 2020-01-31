@@ -25,6 +25,7 @@ https://neo4j.com/docs/graph-algorithms/current/labs-algorithms/shortest-path/
 // หา Shortes path from A1->F1
 MATCH (start:Node1{name:"A1"}), (end:Node1{name:"F1"})
 
+// ระบุ Weight Attribute ในที่นี้คือ distance
 CALL algo.shortestPath.stream(start, end, "distance")
 
 YIELD nodeId, cost
@@ -40,8 +41,8 @@ RETURN other.name AS name, cost;
 // หา Shortes path from A1->F1
 MATCH (start:Node1{name:"A1"}), (end:Node1{name:"F1"})
 
-// ระบุ Weight Attribute ในที่นี้คือ distance
-CALL algo.shortestPath.stream(start, end, "distance")
+// ไม่ต้องระบุ Weight Attribute
+CALL algo.shortestPath.stream(start, end)
 
 YIELD nodeId, cost
 
