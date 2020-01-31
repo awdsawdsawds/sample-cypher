@@ -97,7 +97,7 @@ CALL algo.degree.stream("Node1", "Link1", {direction: "incoming"})
 
 YIELD nodeId, score
 
-RETURN algo.asNode(nodeId).name AS name, score
+RETURN algo.asNode(nodeId).name AS node, score
 
 ORDER BY score DESC;
 ```
@@ -122,7 +122,7 @@ YIELD nodeId, centrality
 
 MATCH (n:Node1) WHERE id(n) = nodeId
 
-RETURN n.name AS n, centrality
+RETURN n.name AS node, centrality
 
 ORDER BY centrality DESC;
 ```
