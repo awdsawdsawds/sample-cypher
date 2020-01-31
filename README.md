@@ -25,7 +25,7 @@ MERGE (d1)-[:Link1 { distance: 3 }]->(f1);
 
 https://neo4j.com/docs/graph-algorithms/current/labs-algorithms/shortest-path/
 
-### แบบสนใจ weight
+แบบสนใจ weight
 
 ```
 // หา Shortes path from A1->F1
@@ -41,7 +41,7 @@ MATCH (other:Node1) WHERE id(other) = nodeId
 RETURN other.name AS name, cost;
 ```
 
-### แบบไม่สนใจ weight (ทุก relation มี weight เป็น 1)
+แบบไม่สนใจ weight (ทุก relation มี weight เป็น 1)
 
 ```
 // หา Shortes path from A1->F1
