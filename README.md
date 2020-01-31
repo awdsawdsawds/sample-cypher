@@ -129,11 +129,11 @@ ORDER BY centrality DESC;
 
 สามารถเลือก direction ได้ 3 แบบ
 
-- `'INCOMING'`,`'IN'`,`'I'`, `'<'`: สนใจขาเข้า (เป็น incoming option)
+- `'INCOMING'`,`'IN'`,`'I'`,`'<'`: สนใจขาเข้า (เป็น incoming option)
 
-- `'OUTGOING'`,`'OUT'`,`'O'`, `'>'`: สนใจขาออก (เป็น `default` option)
+- `'OUTGOING'`,`'OUT'`,`'O'`,`'>'`: สนใจขาออก (เป็น `default` option)
 
-- `'both', '<>'`: ไม่สนทิศทาง (undirected graph)
+- `'both'`,`'<>'`: ไม่สนทิศทาง (undirected graph)
 
 
 ดูเพิ่มเติมที่ https://neo4j.com/docs/graph-algorithms/current/labs-algorithms/betweenness-centrality/#labs-algorithms-betweenness-centrality-support
