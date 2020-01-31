@@ -7,9 +7,9 @@
 > 2. ใน code บางคำเป็นแค่ชื่อตัวแปร ซึ่งเวลาใช้ต้องเปลี่ยนตามโจทย์ที่ให้มา  
 > 3. ต้องติดตั้ง plugin `GRAPH ALGORITHMS` โดยสามารถเซ็คได้ดังนี้
 
-> ![management](image/management.png)
+> ![management page](image/management.png)
 
-> ![management](image/plugin.png)
+> ![pliugin page](image/plugin.png)
 
 
 ## Start (initial graph)
