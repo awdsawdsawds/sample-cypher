@@ -12,7 +12,7 @@
 > ![management](image/plugin.png)
 
 
-## Start (initial data)
+## Start (initial graph)
 
 เริ่มจากการสร้าง graph
 
