@@ -2,15 +2,17 @@
 
 ตัวอย่าง Cypher เบื้องต้น
 
-`หมายเหตุ`  
+> `หมายเหตุ`  
 `1. ใน code บางอย่างตัวพิมพ์เล็ก ตัวพิมพิ์ใหญ่ใช้แทนกันได้ (case insensitive)`  
 `2. ใน code ตัวอย่างนี้ บางคำเป็นแค่ชื่อตัวแปร ซึ่งเวลาใช้ต้องเปลี่ยนตามโจทย์`  
 `3. ต้องติดตั้ง plugin GRAPH ALGORITHMS ก่อน โดยสามารถเซ็คได้ดังนี้`
 
-![management](image/management.png)
+> ![management](image/management.png)
 
-![management](image/plugin.png)
+> ![management](image/plugin.png)
 
+
+## Start (initial data)
 
 เริ่มจากการสร้าง graph
 
