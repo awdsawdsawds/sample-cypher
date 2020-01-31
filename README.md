@@ -97,7 +97,7 @@ CALL algo.degree.stream("Node1", "Link1", {direction: "incoming"})
 
 YIELD nodeId, score
 
-RETURN algo.asNode(nodeId).id AS name, score
+RETURN algo.asNode(nodeId).name AS name, score
 
 ORDER BY score DESC;
 ```
@@ -195,7 +195,7 @@ CALL algo.pageRank.stream("Node1", "Link1", {iterations:100, weightProperty: "di
 
 YIELD nodeId, score
 
-RETURN algo.asNode(nodeId).name AS page,score
+RETURN algo.asNode(nodeId).name AS page, score
 
 ORDER BY score DESC;
 ```
