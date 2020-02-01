@@ -14,7 +14,7 @@
 
 ## Start (initial graph)
 
-เริ่มจากการสร้าง graph
+เริ่มจากการสร้าง graph ซึ่งเราจะใช้ graph ต่อไปนี้กับทุกตัวอย่าง
 
 ```
 MERGE (a1: Node1 { name: "A1" })
@@ -29,6 +29,9 @@ MERGE (b1)-[:Link1 { distance: 4 }]->(f1)
 MERGE (c1)-[:Link1 { distance: 1 }]->(d1)
 MERGE (d1)-[:Link1 { distance: 3 }]->(f1);
 ```
+
+![intro graph](image/init-graph.png)
+
 
 ## Shortes path
 
