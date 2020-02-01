@@ -11,6 +11,7 @@
 
 > ![pliugin page](image/plugin.png)
 
+> 4. รูปอาจจะวางผิดนะ อย่าสนรูปมาก TT
 
 ## Start (initial graph)
 
@@ -53,6 +54,8 @@ MATCH (other:Node1) WHERE id(other) = nodeId
 RETURN other.name AS name, cost;
 ```
 
+![short 1](image/short1.png)
+
 แบบไม่สนใจ weight (ทุก relation มี weight เป็น 1)
 
 ```
@@ -68,6 +71,8 @@ MATCH (other:Node1) WHERE id(other) = nodeId
 
 RETURN other.name AS name, cost;
 ```
+
+![short 1](image/short2.png)
 
 ## MST
 
@@ -86,6 +91,8 @@ YIELD loadMillis, computeMillis, writeMillis, effectiveNodeCount
 RETURN loadMillis, computeMillis, writeMillis, effectiveNodeCount;
 ```
 
+![mst1](image/mst1.png)
+
 ขั้นตอนที่ 2: แสดง MST เป็นตารางจาก relation MINST ที่สร้างไว้ก่อนหน้านี้
 
 ```
@@ -100,6 +107,8 @@ WITH DISTINCT rel AS rel
 RETURN startNode(rel).name AS source, endNode(rel).name AS destination, rel.distance AS cost;
 ```
 
+![mst2](image/mst2.png)
+
 ## Degree centrality
 
 https://neo4j.com/docs/graph-algorithms/current/labs-algorithms/degree-centrality/
@@ -113,6 +122,8 @@ RETURN algo.asNode(nodeId).name AS node, score
 
 ORDER BY score DESC;
 ```
+
+![dc](image/dc.png)
 
 สามารถเลือก direction ได้ 3 แบบ
 
@@ -138,6 +149,8 @@ RETURN n.name AS node, centrality
 
 ORDER BY centrality DESC;
 ```
+
+![bc](image/bc.png)
 
 สามารถเลือก direction ได้ 3 แบบ
 
@@ -166,6 +179,8 @@ RETURN n.name AS node, centrality
 ORDER BY centrality DESC;
 ```
 
+![closec 1](image/closec1.png)
+
 หรือใส่ Limit (query อันอื่นก็สามารถใส่ Limit ได้)
 
 ```
@@ -183,6 +198,8 @@ ORDER BY centrality DESC
 LIMIT 3;
 ```
 
+![closec 2](image/closec2.png)
+
 ## Pagerank centrality
 
 https://neo4j.com/docs/graph-algorithms/current/algorithms/page-rank/
@@ -199,6 +216,8 @@ RETURN algo.asNode(nodeId).name AS page,score
 ORDER BY score DESC;
 ```
 
+![pc 1](image/pc1.png)
+
 สามารถบอก weight ได้ (ถ้ามี) เช่น
 
 ```
@@ -211,6 +230,8 @@ RETURN algo.asNode(nodeId).name AS page, score
 
 ORDER BY score DESC;
 ```
+
+![pc 2](image/pc2.png)
 
 และสามารถเลือก direction ได้ 3 แบบ
 
